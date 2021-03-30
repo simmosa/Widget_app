@@ -1,9 +1,12 @@
 const express = require('express')
-const app = express()
-
+const session = require('express-session')
 const usersController = require('./controllers/usersController.js')
 
+const app = express()
+
 const port = 8080;
+
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: null }}))
 
 // app.use(express.bodyParser());
 
