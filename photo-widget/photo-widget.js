@@ -22,9 +22,7 @@ refreshBtn.addEventListener('click', event => {
     // photo.firstElementChild.src = 'https://source.unsplash.com/random/300x300'
     
     axios.get('https://source.unsplash.com/random/300x300').then((res) => {
-        console.log(res.data.urls)
+        console.log(res.data)
     })
-    console.log("test")
-    console.log(photo)
 })
 

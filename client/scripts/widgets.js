@@ -44,3 +44,15 @@ class CalculatorWidget{
         widgetDiv.append(input1, plusSign, input2, answerText, btn)
     }
 }
+
+class ClockWidget{
+        constructor(options = {}){
+            this.id = createWidget(options)
+            this.makeWidget()
+        }
+    
+        makeWidget(){
+            let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
+            initialiseClock(widgetDiv)
+        }
+    }
