@@ -5,13 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack-extra.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/styles/layout-style.css">
+    <script src="/gridstack/dist/gridstack-h5.js"></script>
     <script src="/scripts/library.js"></script>
     <script src="/scripts/widgets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+<header>
+    <div class="hamburger-icon">
+        <div class="hamburger-1"></div>
+        <div class="hamburger-2"></div>
+        <div class="hamburger-3"></div>
+    </div>
+    <nav class="side-bar">
+        <div class="user-profile-container">
+            <p>login ect</p>
+        </div>
+        <div class="widget-list-container">
+            <p>widgets list</p>
+        </div>
+    </nav>
+</header>
+
 
 <div class="grid-wrapper">
 
@@ -23,5 +41,6 @@
 
 
     <script src="/scripts/main.js"></script>
+    <script src="/scripts/indexApp.js"></script>
 </body>
 </html>

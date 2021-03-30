@@ -6,14 +6,14 @@ let savedWidgets = [
         "y": 0,
         "h": 2,
         "id": "calculatorWidget",
-        "w": 0
+        "w": 3
       },
     {
       "x": 3,
       "y": 0,
       "h": 2,
       "id": "calculatorWidget",
-      "w": 1
+      "w": 3
     }
 ];
 
