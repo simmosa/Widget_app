@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.photo-widget {
+    background-color: #0f0f0f;
+    display: flex;
+    height: 340px;
+    width: 340px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.photo-container {
+    flex-direction: column;
+    position: relative;
+}
+
+.refresh-btn {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    opacity: 0;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.photo-container:hover .refresh-btn {
+    opacity: 1;
+}
+
+img {
+    transition: all 0.3s linear;
+    opacity: 1;
+}

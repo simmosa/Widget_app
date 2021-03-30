@@ -1,5 +1,4 @@
-
-function createTime() {
+function createTime(widgetDiv) {
     
     let d = new Date()
     let hours = d.getHours()
@@ -39,11 +38,14 @@ function createTime() {
     let clockWidget = document.createElement('div')
     clockWidget.classList.add('clock-widget')
     clockWidget.innerHTML = clockWidgetHTML
-    document.body.append(clockWidget)
+    widgetDiv.append(clockWidget)
 
 }
 
-createTime()
+function initialiseClock(widgetDiv) {
+    createTime(widgetDiv)
+    setTimeout(getTime, 1000);
+}
 
 const getTime = function(){
 
@@ -71,5 +73,3 @@ const getTime = function(){
     pSecs.textContent = seconds
     setTimeout(getTime, 1000);
 };
-
-setTimeout(getTime, 1000);
