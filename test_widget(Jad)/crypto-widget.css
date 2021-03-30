@@ -4,10 +4,11 @@
 
 .crypto-widget {
     background-color:#0f0f0f;
-    width: 600px;
+    width: 750px;
     height: 300px;
     border-radius: 5px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
     justify-content: left;
     align-items: center;
 }
@@ -24,25 +25,28 @@ p {
 }
 
 .price, .day-high, .day-low, .day-change {
-    margin: 10px 0px 10px 0px;
     color: whitesmoke;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.crypto-id, .crypto-price, .crypto-day-high, .crypto-day-low, .crypto-day-change {
-    margin: 0px 20px 0px 20px;
+.crypto-value-descriptor {
+    color: #23B5D3;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.crypto-price, .crypto-day-high, .crypto-day-low, .crypto-day-change {
+    margin: 10px 20px 10px 20px;
+}
+
+.crypto-details-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .crypto-image {
-    max-width: 28px;
-}
-
-.time {
-    width: 300px;
-    height: 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    align-items: center;
+    max-width: 60px;
+    margin: 0 auto;
+    justify-content: center;
 }
