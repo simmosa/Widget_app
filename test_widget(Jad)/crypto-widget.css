@@ -2,13 +2,13 @@
     box-sizing: border-box;
 }
 
-.clock-widget {
+.crypto-widget {
     background-color:#0f0f0f;
-    width: 400px;
-    height: 100px;
+    width: 600px;
+    height: 300px;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -17,14 +17,25 @@ p {
     margin-bottom: 0;
 }
 
-.p-hours, .p-mins, .p-secs, .p-break {
+.name {
     color: whitesmoke;
-    font-size: 55px;
+    font-size: 35px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.p-break {
-    margin-bottom: 7px;
+.price, .day-high, .day-low, .day-change {
+    margin: 10px 0px 10px 0px;
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.crypto-id, .crypto-price, .crypto-day-high, .crypto-day-low, .crypto-day-change {
+    margin: 0px 20px 0px 20px;
+}
+
+.crypto-image {
+    max-width: 28px;
 }
 
 .time {
