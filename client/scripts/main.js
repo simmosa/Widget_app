@@ -21,6 +21,13 @@ let savedWidgets = [
       "h": 1,
       "id": "clockWidget",
       "w": 4
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "h": 2,
+      "id": "photoWidget",
+      "w": 2
     }
 ];
 
@@ -33,6 +40,8 @@ savedWidgets.forEach(savedWidget => {
         case "calculatorWidget": widgets.push(new CalculatorWidget(savedWidget))
         break;
         case "clockWidget": widgets.push(new ClockWidget(savedWidget))
+        break;
+        case "photoWidget": widgets.push(new PhotoWidget(savedWidget))
         break;
     }
 });

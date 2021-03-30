@@ -46,13 +46,26 @@ class CalculatorWidget{
 }
 
 class ClockWidget{
-        constructor(options = {}){
-            this.id = createWidget(options)
-            this.makeWidget()
-        }
-    
-        makeWidget(){
-            let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
-            initialiseClock(widgetDiv)
-        }
+    constructor(options = {}){
+        this.id = createWidget(options)
+        this.makeWidget()
     }
+
+    makeWidget(){
+        let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
+        initialiseClock(widgetDiv)
+    }
+}
+
+class PhotoWidget{
+    constructor(options = {}){
+        this.id = createWidget(options)
+        this.makeWidget()
+    }
+
+    makeWidget(){
+        let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
+
+        initialisePhoto(widgetDiv)
+    }
+}
