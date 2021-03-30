@@ -8,7 +8,7 @@ function newSession(req, res) {
         (bcrypt.compare(req.body.password, db.rows[0].password, function(err, result) {
             if (result == true) {
                 res.json("correct user credentials and logged in.")
-            } else if (result == false) {
+            } else {
                 res.json("incorrect credentials provided.")
             }
         }))    
@@ -26,8 +26,8 @@ function create(req,res) {
     }); 
 }
 
-
 module.exports = {
     newSession,
     create
 }
+

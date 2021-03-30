@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const usersController = require('./controllers/usersController.js')
+const usersController = require('../controllers/usersController.js')
 
 const { Pool } = require('pg')
 const pool = new Pool({ database: 'wizard'})

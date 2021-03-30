@@ -8,7 +8,7 @@ CREATE TABLE users (
     password TEXT
 );
 
-INSERT INTO users (first_name, last_name, email, password) VALUES ('user', 'user', 'user@user.com', 'user');
+INSERT INTO users (first_name, last_name, email, password) VALUES ('user2', 'user2', 'user2@user.com', '$2b$10$ud3ibmMEdsJpBSlArfF0IOV6oLrtgiaYTVNjC3HDYTUaWj5ignwqy');
 
 
 -- CREATE TABLE widgets (
