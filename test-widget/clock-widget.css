@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+.clock-widget {
+    background-color:#0f0f0f;
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.p-hours, .p-mins, .p-secs, .p-break {
+    color: whitesmoke;
+    font-size: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.p-break {
+    margin-bottom: 7px;
+}
+
+.time {
+    width: 300px;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
