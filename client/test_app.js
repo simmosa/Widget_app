@@ -1,8 +1,6 @@
-let p = document.createElement('p')
-p.textContent = "Test app is connected"
-document.body.appendChild(p)
+//////////////                                     //////////////////////
+/////////////       login from and handlers       //////////////////////
 
-/////////////////////////
 const loginForm = document.querySelector('.login_form')
 const loginEmailInput = document.querySelector('.login_email_input')
 const loginPasswordInput = document.querySelector('.login_password_input')
@@ -19,7 +17,10 @@ function handleLogin(e) {
 
 loginForm.addEventListener('submit', handleLogin)
 
-/////////////////////
+
+///////////                                            ///////////////////
+//////////          new user from and handler         ///////////////////
+
 const newUserForm = document.querySelector('.new_user_form')
 const firstNameInput = document.querySelector('.first_name_input')
 const lastNameInput = document.querySelector('.last_name_input')
@@ -36,10 +37,12 @@ function handleNewUser(e) {
         password: passwordInput.value
     }).then(res => {
         let result = document.createElement('p')
-        result.textContent = res.data
+        result.textContent = `user id is ${res.data.user.id}`
         document.body.appendChild(result)
           
     });  
 }
 
 newUserForm.addEventListener('submit', handleNewUser)
+
+
