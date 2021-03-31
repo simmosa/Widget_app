@@ -1,0 +1,26 @@
+
+.login_form, .signup_form {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.login-h3, .signup-h3 {
+    margin-left: 10%;
+}
+
+.welcome-user-div {
+    width: 80%;
+    margin-left: 4%;
+    display: grid;
+    grid-template-columns: 64% 22% 22%;
+    grid-template-rows: 50%;
+}
+.welcome-user-div button {
+    border-radius: 30%;
+    /* padding: 3px 10px; */
+}
+.hide-logins-items {
+    display: none;
+}

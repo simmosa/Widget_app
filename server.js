@@ -6,7 +6,7 @@ const app = express()
 
 const port = 8080;
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: null }}))
+app.use(session({secret: 'keyboard cat', cookie: { maxAge: null }}))
 
 // app.use(express.bodyParser());
 
@@ -22,11 +22,12 @@ app.listen(port, () => {
 })
 
 
-
+app.get('/api/sessions', usersController.userLoggedIn)
 app.post('/api/sessions', usersController.newSession)
+app.delete('/api/sessions', usersController.endSession)
 
-app.post('/api/users', usersController.create)
 
+app.post('/api/users', usersController.createUser)
 app.patch('/users/:id')
 app.delete('/users/:id')
 
