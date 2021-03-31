@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+.dictionary-widget {
+    width: 270px;
+    height: 270px;
+    background-color: #0f0f0f;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+
+.heading-and-search-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+}
+
+p, span {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.word-container {
+    margin: 10px 10px 10px 10px;
+}
+
+.dictionary-word-search {
+    margin: 10px 10px 0px 10px;
+}
+
+.dictionary-heading {
+    font-weight: 400;
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 5px 0px 0px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dictionary-word-search {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.dictionary-search-input {
+    border-radius: 5px;
+    background-color: #0f0f0f;
+    border: 2px solid #23B5D3;
+    color: rgba(255,255,255,0.5);
+    padding: 2px 15px 4px 5px;
+    max-width: 120px;
+    font-size: 14px;
+}
+
+::placeholder {
+    color: whitesmoke;
+    opacity: 0.5;
+}
+
+.word-container {
+    border-top: 1px solid darkgrey;
+}
+
+.dictionary-word, .dictionary-synonym {
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 15px 0px 5px 4px;
+    display: inline-block;
+}
+
+.dictionary-word-action {
+    color: #23B5D3;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 15px 0px 5px 4px;
+}
+
+.dictionary-word-meaning {
+    color: darkgrey;
+    font-size: 12px;
+    margin: 0px 15px 5px 15px;
+}
+
+.dictionary-word-example {
+    color: #23B5D3;
+    font-size: 12px;
+    margin: 0px 15px 10px 15px;
+    font-style: italic;
+}
+
+.dictionary-word-synonyms {
+    color: darkgrey;
+    font-size: 12px;
+    margin: 0px 15px 10px 15px;
+}
+
+/* .crypto-widget {
+    background-color:#0f0f0f;
+    width: 750px;
+    height: 300px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    justify-content: left;
+    align-items: center;
+    border: 2px solid #23B5D3;
+}
+
+.crypto-search-input {
+    margin: 0px 20px 10px 20px;
+    padding: 2px 15px 2px 8px;
+    background-color: #0f0f0f;
+    color: whitesmoke;
+    border-radius: 7px;
+    border: 2px solid #23B5D3;
+}
+
+::placeholder {
+    color: whitesmoke;
+    opacity: 0.5;
+}
+
+.price, .day-high, .day-low, .day-change {
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.crypto-value-descriptor {
+    color: #23B5D3;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.crypto-price, .crypto-day-high, .crypto-day-low, .crypto-day-change {
+    margin: 10px 20px 10px 20px;
+}
+
+.crypto-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.crypto-image {
+    max-width: 60px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.crypto-chart-canvas {
+    width: 95%;
+    height: 90%;
+    color: #23B5D3;
+    margin: 25px 0px 0px 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif
+} */
