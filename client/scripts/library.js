@@ -23,6 +23,10 @@ function addSideBarWidgetBack(item){
         break;
         case 'photoWidget': document.querySelector('.sidebar-photo-widget').classList.remove('hide-sidebar-widget')
         break;
+        case 'cryptoWidget': document.querySelector('.sidebar-crypto-widget').classList.remove('hide-sidebar-widget')
+        break;
+        case 'weatherWidget': document.querySelector('.sidebar-weather-widget').classList.remove('hide-sidebar-widget')
+        break;
     }
 }
 
@@ -37,10 +41,19 @@ function loadUserWidgets(){
         test.forEach(savedWidget => {
             switch(savedWidget.id){
               case "calculatorWidget": widgets.push(new CalculatorWidget(savedWidget))
+              document.querySelector('.sidebar-calculator-widget').classList.add('hide-sidebar-widget')
               break;
               case "clockWidget": widgets.push(new ClockWidget(savedWidget))
+              document.querySelector('.sidebar-clock-widget').classList.add('hide-sidebar-widget')
               break;
               case "photoWidget": widgets.push(new PhotoWidget(savedWidget))
+              document.querySelector('.sidebar-photo-widget').classList.add('hide-sidebar-widget')
+              break;
+              case "cryptoWidget": widgets.push(new CryptoWidget(savedWidget))
+              document.querySelector('.sidebar-crypto-widget').classList.add('hide-sidebar-widget')
+              break;
+              case "weatherWidget": widgets.push(new WeatherWidget(savedWidget))
+              document.querySelector('.sidebar-weather-widget').classList.add('hide-sidebar-widget')
               break;
             }
         })

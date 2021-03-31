@@ -15,43 +15,7 @@ let grid = GridStack.init({
 
 let currentlyAddingWidget = false;
 
-
-let savedWidgets = [
-  // {
-  //   "x": 3,
-  //   "y": 0,
-  //   "h": 1,
-  //   "id": "calculatorWidget",
-  //   "w": 1
-  // },
-  // {
-  //   "x": 3,
-  //   "y": 0,
-  //   "h": 1,
-  //   "id": "calculatorWidget",
-  //   "w": 1
-  // },
-  // {
-  //   "x": 3,
-  //   "y": 0,
-  //   "h": 1,
-  //   "id": "clockWidget",
-  //   "w": 3
-  // }
-];
-
-
 let widgets = []
-
-
-savedWidgets.forEach(savedWidget => {
-  switch(savedWidget.id){
-    case "calculatorWidget": widgets.push(new CalculatorWidget(savedWidget))
-    break;
-    case "clockWidget": widgets.push(new ClockWidget(savedWidget))
-    break;
-  }
-});
 
 grid.on('added', (e, items) => {
   if(!currentlyAddingWidget){
@@ -78,6 +42,7 @@ grid.on('added', (e, items) => {
         document.querySelector('.sidebar-dictionary-widget').classList.add('hide-sidebar-widget')
         break;
     }
+    saveWidgetProfileData();
     currentlyAddingWidget = false;
   }
 })

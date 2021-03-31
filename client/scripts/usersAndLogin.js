@@ -61,7 +61,8 @@ function handleNewUser(e) {
         email: emailInput.value, 
         password: passwordInput.value
     }).then(res => {
-        displayWelcomeUser(res.data.name)         
+        displayWelcomeUser(res.data.name)
+        saveWidgetProfileData();         
     });  
 }
 
