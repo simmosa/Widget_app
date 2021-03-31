@@ -1,9 +1,33 @@
 //////////////                                     //////////////////////
 /////////////       login from and handlers       //////////////////////
 
+const loginSpan = document.querySelector('.login-span')
+const signupSpan = document.querySelector('.signup-span')
+
 const loginForm = document.querySelector('.login_form')
 const loginEmailInput = document.querySelector('.login_email_input')
 const loginPasswordInput = document.querySelector('.login_password_input')
+
+const signupForm = document.querySelector('.signup_form')
+const firstNameInput = document.querySelector('.first_name_input')
+const lastNameInput = document.querySelector('.last_name_input')
+const emailInput = document.querySelector('.email_input')
+const passwordInput = document.querySelector('.password_input')
+
+function handleDisplayLogin() {
+    loginForm.classList.remove('hide-logins-items')
+    signupForm.classList.add('hide-logins-items')
+}
+function handleDisplaySignup() {
+    loginForm.classList.add('hide-logins-items')
+    signupForm.classList.remove('hide-logins-items')
+
+}
+
+// loginSpan.addEventListener('hover', handleDisplayLogin)
+// signupSpan.addEventListener('click', handleDisplaySignup)
+
+
 
 function handleLogin(e) {
     e.preventDefault()
@@ -11,6 +35,7 @@ function handleLogin(e) {
     axios.post('/api/sessions', { email: loginEmailInput.value, password: loginPasswordInput.value}).then(res => {
         if (res.data.login == 'success') {  
             displayWelcomeUser(res.data.name)
+            loadUserWidgets()
         }
     })
 }
@@ -21,11 +46,11 @@ loginForm.addEventListener('submit', handleLogin)
 ///////////                                            ///////////////////
 //////////          new user from and handler         ///////////////////
 
-const signupForm = document.querySelector('.signup_form')
-const firstNameInput = document.querySelector('.first_name_input')
-const lastNameInput = document.querySelector('.last_name_input')
-const emailInput = document.querySelector('.email_input')
-const passwordInput = document.querySelector('.password_input')
+// const signupForm = document.querySelector('.signup_form')
+// const firstNameInput = document.querySelector('.first_name_input')
+// const lastNameInput = document.querySelector('.last_name_input')
+// const emailInput = document.querySelector('.email_input')
+// const passwordInput = document.querySelector('.password_input')
 
 function handleNewUser(e) {
     e.preventDefault()
@@ -49,27 +74,21 @@ signupForm.addEventListener('submit', handleNewUser)
 const logoutBtn = document.querySelector('.logout-btn')
 
 function handleLogout() {
+    console.log("logout activated")
     // save the widgets that the user has enabled
     // saveUserState()
     axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
         
-     })
+        })
 
     displayLogoutState()
-
-////for testing purposes, get the session user id..
-    axios.get('/api/sessions',{}).then(res => {
-        let sessionUserId = document.createElement('p')
-        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
-        document.body.appendChild(sessionUserId)
-    })
 }
 
 logoutBtn.addEventListener('click', handleLogout)
 
 
 ////////////////
-///////////////      display functions
+///////////////     display functions
 
 function displayWelcomeUser(name) { 
     //displays user name and hides login and signup
@@ -83,13 +102,6 @@ function displayWelcomeUser(name) {
     loginDiv.classList.add('hide-logins-items')
     const signupDiv = document.querySelector('.signup-div')
     signupDiv.classList.add('hide-logins-items')
-
- /// for testing purposes displaying session user ID
-    axios.get('/api/sessions',{}).then(res => {
-        let sessionUserId = document.createElement('p')
-        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
-        document.body.appendChild(sessionUserId)
-    })
 }
 
 function displayLogoutState() {
@@ -112,6 +124,19 @@ function displayLogoutState() {
     passwordInput.value = ""
 }
 
+////////////////  Handy functions
+
+function currentUser() {
+    axios.get('/api/sessions',{}).then(res => {
+        console.log('current user id is ' + res.data.loggedInUserId)
+    })
+}
+ 
+function getUserWidgets() {
+    axios.get('/api/users/widgets',{}).then(res => {
+        console.log(res.data.savedWidgets)
+    })
+}
 
 
 

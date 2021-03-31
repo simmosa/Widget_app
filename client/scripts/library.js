@@ -9,7 +9,10 @@ function createWidget(options = {}){
 }
 
 function saveWidgetProfileData(){
-    console.log('running save')
+    let widgetsSaveProfile = grid.save()
+    axios.post('/api/users/widgets', {userSave: widgetsSaveProfile}).then(res => {
+        console.log('running save')
+    })
 }
 
 function addSideBarWidgetBack(item){
@@ -21,4 +24,26 @@ function addSideBarWidgetBack(item){
         case 'photoWidget': document.querySelector('.sidebar-photo-widget').classList.remove('hide-sidebar-widget')
         break;
     }
+}
+
+function loadUserWidgets(){
+    //axios request
+    grid.removeAll();
+    axios.get('/api/users/widgets', {}).then(res => {
+        console.log(res.data.savedWidgets)
+        widgets = []
+        currentlyAddingWidget = true
+        let test = JSON.parse(res.data.savedWidgets)
+        test.forEach(savedWidget => {
+            switch(savedWidget.id){
+              case "calculatorWidget": widgets.push(new CalculatorWidget(savedWidget))
+              break;
+              case "clockWidget": widgets.push(new ClockWidget(savedWidget))
+              break;
+              case "photoWidget": widgets.push(new PhotoWidget(savedWidget))
+              break;
+            }
+        })
+        currentlyAddingWidget = false
+    })
 }

@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
-
 function userLoggedIn(req, res) {
     //return the session user ID.
     res.json({loggedInUserId: req.session.user_id})
@@ -58,9 +57,28 @@ function createUser(req,res) {
 }
 
 
+function getUsersWidgets(req,res) {
+    // gives the widgets of the session user
+    pool.query('SELECT * FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) => {
+        res.json({savedWidgets: db.rows[0].widgets})
+    })
+}
+
+function createUsersWidgets(req, res) {
+    //first we delete the previous entry in the table for the user then add the updated one.
+    pool.query('DELETE FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) =>{})
+
+    let usersWidgets = JSON.stringify(req.body.userSave)
+    pool.query('INSERT INTO userswidgets (user_id, widgets) VALUES ($1, $2)', [req.session.user_id, usersWidgets], (err, db) => {
+        res.json({message: "user widgets saved sucessfully"})
+    })
+}
+
 module.exports = {
     userLoggedIn,
     newSession,
     endSession,
-    createUser
+    createUser,
+    getUsersWidgets,
+    createUsersWidgets
 }
