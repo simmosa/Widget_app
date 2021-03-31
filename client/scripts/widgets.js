@@ -83,3 +83,16 @@ class CryptoWidget{
     }
 }
 
+class WeatherWidget{
+    constructor(options = {}){
+        this.id = createWidget(options)
+        this.makeWidget()
+    }
+
+    makeWidget(){
+        let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
+
+        initialiseWeather(widgetDiv)
+    }
+}
+
