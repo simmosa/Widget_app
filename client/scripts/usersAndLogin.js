@@ -51,15 +51,17 @@ const logoutBtn = document.querySelector('.logout-btn')
 function handleLogout() {
     // save the widgets that the user has enabled
     // saveUserState()
-    // axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
-
-    // })
+    axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
+        
+     })
 
     displayLogoutState()
 
-    //for testing purposes, get the session user id..
+////for testing purposes, get the session user id..
     axios.get('/api/sessions',{}).then(res => {
-        document.body.appendChild(res.data.loggedInUserId)
+        let sessionUserId = document.createElement('p')
+        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
+        document.body.appendChild(sessionUserId)
     })
 }
 
@@ -81,6 +83,13 @@ function displayWelcomeUser(name) {
     loginDiv.classList.add('hide-logins-items')
     const signupDiv = document.querySelector('.signup-div')
     signupDiv.classList.add('hide-logins-items')
+
+ /// for testing purposes displaying session user ID
+    axios.get('/api/sessions',{}).then(res => {
+        let sessionUserId = document.createElement('p')
+        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
+        document.body.appendChild(sessionUserId)
+    })
 }
 
 function displayLogoutState() {
@@ -102,6 +111,7 @@ function displayLogoutState() {
     emailInput.value = ""
     passwordInput.value = ""
 }
+
 
 
 

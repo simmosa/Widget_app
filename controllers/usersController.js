@@ -30,7 +30,7 @@ function newSession(req, res) {
 function endSession(req, res) {
 
     // delete previous widget entry in database
-    pool.query('DELETE FROM userWidgets WHERE id = $1', [req.sessions.user_id], () => {
+    pool.query('DELETE FROM userWidgets WHERE id = $1', [req.session.user_id], () => {
         //return message if needed
         // res.json({ message: `deleted`})
     })
@@ -43,7 +43,7 @@ function endSession(req, res) {
     )
 
     //destroy the session
-    req.session.destroy()
+    req.session.destroy(req.session.user_id)
 }
 
 function createUser(req,res) {
