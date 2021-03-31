@@ -55,15 +55,18 @@ savedWidgets.forEach(savedWidget => {
 
 grid.on('added', (e, items) => {
   if(!currentlyAddingWidget){
+    console.log(items[0])
       currentlyAddingWidget = true;
-      console.log(items[0])
       grid.removeWidget(items[0].el)
       switch(items[0].id){
-        case "calculatorWidget": widgets.push(new CalculatorWidget(items[0]))
+        case "calculatorWidget": widgets.push(new CalculatorWidget(items[0]));
+        document.querySelector('.sidebar-calculator-widget').classList.add('hide-sidebar-widget')
         break;
-        case "clockWidget": widgets.push(new ClockWidget(items[0]))
+        case "clockWidget": widgets.push(new ClockWidget(items[0]));
+        document.querySelector('.sidebar-clock-widget').classList.add('hide-sidebar-widget')
         break;
-        case "photoWidget": widgets.push(new PhotoWidget(savedWidget))
+        case "photoWidget": widgets.push(new PhotoWidget(items[0]));
+        document.querySelector('.sidebar-photo-widget').classList.add('hide-sidebar-widget')
         break;
     }
     currentlyAddingWidget = false;
@@ -71,19 +74,22 @@ grid.on('added', (e, items) => {
 })
 
 grid.on('dragstart', (e, item) => {
-  console.log('drag started')
   sideBar.classList.add('nav-show-edit')
   showTrashCan();
 })
 
 grid.on('dragstop', (e, item) => {
-  console.log('drag stopped')
-  console.log(item)
   sideBar.classList.remove('nav-show-edit')
   if (mouseOverTrashCan){
+    addSideBarWidgetBack(item);
     grid.removeWidget(item)
+    saveWidgetProfileData();
   }
   hideTrashCan();
   mouseOverTrashCan = false
+})
+
+grid.on('change',(i, j) => {
+  saveWidgetProfileData();
 })
 

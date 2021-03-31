@@ -18,13 +18,11 @@ function hideTrashCan(){
 }
 
 function setDragEnterTrashCan(){
-    console.log('mouse drag on trashcan')
     trashCan.classList.add('drag-on-trash-can')
     mouseOverTrashCan = true
 }
 
 function setDragLeaveTrashCan(){
-    console.log('mouse drag out trashcan')
     trashCan.classList.remove('drag-on-trash-can')
     mouseOverTrashCan = false
 }
