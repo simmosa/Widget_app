@@ -85,18 +85,18 @@ cryptoSearchForm.addEventListener('submit', event => {
                 return Promise.reject(new Error(response.statusText));
             }
         }
-        // Convert time to 12 hour format
-        function tConvert(graphTime) {
-            // Check correct graphTime format and split into components
-            graphTime = graphTime.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [graphTime];
+        // // Convert time to 12 hour format
+        // function tConvert(graphTime) {
+        //     // Check correct graphTime format and split into components
+        //     graphTime = graphTime.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [graphTime];
           
-            if (graphTime.length > 1) { // If graphTime format correct
-              graphTime = graphTime.slice(1);  // Remove full string match value
-              graphTime[5] = +graphTime[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-              graphTime[0] = +graphTime[0] % 12 || 12; // Adjust hours
-            }
-            return graphTime.join (''); // return adjusted time or original string
-        }
+        //     if (graphTime.length > 1) { // If graphTime format correct
+        //       graphTime = graphTime.slice(1);  // Remove full string match value
+        //       graphTime[5] = +graphTime[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+        //       graphTime[0] = +graphTime[0] % 12 || 12; // Adjust hours
+        //     }
+        //     return graphTime.join (''); // return adjusted time or original string
+        // }
         /// Charts ///
         async function printCryptoChart() {
             let { times, prices } = await cryptoData()
