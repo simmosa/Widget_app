@@ -11,20 +11,15 @@
     grid-template-columns: 2fr 5fr;
     justify-content: left;
     align-items: center;
-<<<<<<< HEAD
-    border: 2px solid #23B5D3;
-    box-shadow: 2px 2px 10px black;
-=======
     /* border: 2px solid #23B5D3; */
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
->>>>>>> a8dfd51 (UI update for crypto widget)
 }
 
 .crypto-search-input {
     margin: 0px 20px 10px 20px;
     padding: 2px 15px 2px 8px;
     background-color: #0f0f0f;
-    color: whitesmoke;
+    color: rgba(255,255,255,0.5);
     border-radius: 7px;
     font-size: 12px;
     border: 2px solid #23B5D3;

@@ -38,7 +38,6 @@ class CalculatorWidget{
             answerText.textContent = `${Number(input1.value) + Number(input2.value)}`
         })
 
-
         let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
 
         widgetDiv.append(input1, plusSign, input2, answerText, btn)
@@ -93,6 +92,19 @@ class WeatherWidget{
         let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
 
         initialiseWeather(widgetDiv)
+    }
+}
+
+class DictionaryWidget{
+    constructor(options = {}){
+        this.id = createWidget(options)
+        this.makeWidget()
+    }
+
+    makeWidget(){
+        let widgetDiv = document.querySelector(`[data-widgetID="${this.id}"]`)
+
+        initialiseDictionaryWidget(widgetDiv)
     }
 }
 

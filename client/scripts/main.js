@@ -74,6 +74,9 @@ grid.on('added', (e, items) => {
         case "weatherWidget": widgets.push(new WeatherWidget(items[0]));
         document.querySelector('.sidebar-weather-widget').classList.add('hide-sidebar-widget')
         break;
+        case "dictionaryWidget": widgets.push(new DictionaryWidget(items[0]));
+        document.querySelector('.sidebar-dictionary-widget').classList.add('hide-sidebar-widget')
+        break;
     }
     currentlyAddingWidget = false;
   }
