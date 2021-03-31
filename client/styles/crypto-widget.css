@@ -5,14 +5,19 @@
 .crypto-widget {
     background-color:#0f0f0f;
     width: 720px;
-    height: 280px;
+    height: 270px;
     border-radius: 5px;
     display: grid;
     grid-template-columns: 2fr 5fr;
     justify-content: left;
     align-items: center;
+<<<<<<< HEAD
     border: 2px solid #23B5D3;
     box-shadow: 2px 2px 10px black;
+=======
+    /* border: 2px solid #23B5D3; */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+>>>>>>> a8dfd51 (UI update for crypto widget)
 }
 
 .crypto-search-input {
@@ -21,6 +26,7 @@
     background-color: #0f0f0f;
     color: whitesmoke;
     border-radius: 7px;
+    font-size: 12px;
     border: 2px solid #23B5D3;
 }
 
@@ -31,18 +37,18 @@
 
 .price, .day-high, .day-low, .day-change {
     color: whitesmoke;
-    font-size: 15px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .crypto-value-descriptor {
     color: #23B5D3;
-    font-size: 15px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .crypto-price, .crypto-day-high, .crypto-day-low, .crypto-day-change {
-    margin: 10px 20px 10px 20px;
+    margin: 8px 20px 8px 20px;
 }
 
 .crypto-details-container {
@@ -60,7 +66,7 @@
     width: 95%;
     height: 90%;
     color: #23B5D3;
-    margin: 25px 0px 0px 10px;
+    margin: 6px 0px 0px 5px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif
 }
