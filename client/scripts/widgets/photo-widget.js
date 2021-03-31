@@ -2,7 +2,7 @@ function createPhoto(widgetDiv) {
     photoWidgetHTML = `
         <div class="photo-container">
             <div class="photo">
-                <img src="https://source.unsplash.com/random/300x300" alt="">
+                <img class="photo-widget-img" src="https://source.unsplash.com/random/300x300" alt="">
             </div>
             <span class="refresh-btn material-icons md-36">
                 cached

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/styles/clock-widget.css">
     <link rel="stylesheet" href="/styles/photo-widget.css">
     <link rel="stylesheet" href="/styles/usersAndLogin.css">
+    <link rel="stylesheet" href="/styles/crypto-widget.css">
+    
     <script src="/gridstack/dist/gridstack-h5.js"></script>
     <script src="/scripts/library.js"></script>
     <script src="/scripts/widgets.js"></script>
@@ -82,6 +84,11 @@
                 <div class="grid-stack-item-content" >
                 </div>
             </div>
+            <div class="grid-stack-item ui-draggable newWidget sidebar-crypto-widget" gs-x="8" gs-y="2" gs-w="5" gs-h="2" gs-id="cryptoWidget" draggable="true">
+                <div><img src="/images/photoWidget.png" alt="" class="widget-img"></div>
+                <div class="grid-stack-item-content" >
+                </div>
+            </div>
         </div>
     </nav>
 </header>
@@ -103,9 +110,12 @@
     
     <script src="/scripts/widgets/photo-widget.js"></script>
     <script src="/scripts/widgets/clock-widget.js"></script>
+    <script src="scripts/widgets/crypto-widget.js"></script>
     <script src="/scripts/main.js"></script>
     <script src="/scripts/indexApp.js"></script>
     <script src="/scripts/usersAndLogin.js"></script>
 
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 </body>
 </html>

@@ -36,9 +36,9 @@
     transform: rotate(-180deg);
 }
 
-img {
-    transition: all 0.3s linear;
-    opacity: 1;
+.photo-widget-img {
     height: 240px;
     width: 240px;
+    transition: all 0.3s linear;
+    opacity: 1;
 }
