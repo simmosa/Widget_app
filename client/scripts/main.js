@@ -84,5 +84,6 @@ grid.on('dragstop', (e, item) => {
     grid.removeWidget(item)
   }
   hideTrashCan();
+  mouseOverTrashCan = false
 })
 

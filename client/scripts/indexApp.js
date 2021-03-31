@@ -5,6 +5,7 @@ let mouseOverTrashCan = false;
 
 hamburgerIcon.addEventListener('click', () => {
     sideBar.classList.toggle('nav-show')
+    hamburgerIcon.classList.toggle('nav-active')
 })
 
 function showTrashCan(){
@@ -13,6 +14,7 @@ function showTrashCan(){
 
 function hideTrashCan(){
     trashCan.classList.remove('show-trash-can')
+    trashCan.classList.remove('drag-on-trash-can')
 }
 
 function setDragEnterTrashCan(){
