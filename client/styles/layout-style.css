@@ -25,6 +25,7 @@ header{
     flex-direction: column;
     transform: translate(101%);
     transition: all 200ms linear;
+    z-index: 1; /* Simon added */
 }
 
 .hamburger-icon{
