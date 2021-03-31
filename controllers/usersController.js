@@ -57,10 +57,27 @@ function createUser(req,res) {
     }); 
 }
 
+function getUsersWidgets(req,res) {
+    pool.query('SELECT * FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) => {
+        let resObject = JSON.parse(db.data.widgets)
+        res.resObject
+    })
+}
+
+function createUsersWidgets(req, res) {
+    //first we delete the previous entry in the table for the user then add the updated one.
+    pool.query('DELETE FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) =>{})
+
+    let usersWidgets = JSON.stringify(req.data.widgets)
+    pool.query('INSERT INTO userswidgets (user_id, widgets) VALUES ($1, $2)', [req.session.user_id, usersWidgets], (err, db) => {
+    })
+}
 
 module.exports = {
     userLoggedIn,
     newSession,
     endSession,
-    createUser
+    createUser,
+    getUsersWidgets,
+    createUsersWidgets
 }

@@ -11,11 +11,11 @@ CREATE TABLE users (
 INSERT INTO users (first_name, last_name, email, password) VALUES ('user2', 'user2', 'user2@user.com', '$2b$10$ud3ibmMEdsJpBSlArfF0IOV6oLrtgiaYTVNjC3HDYTUaWj5ignwqy');
 
 
--- CREATE TABLE widgets (
---     id SERIAL PRIMARY KEY,
---     name TEXT,
---     settings TEXT
--- );
+CREATE TABLE usersWidgets (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    widgets TEXT
+);
 
 -- CREATE TABLE widgets-used (
 --     id SERIAL PRIMARY KEY,

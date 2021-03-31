@@ -31,3 +31,6 @@ app.post('/api/users', usersController.createUser)
 app.patch('/users/:id')
 app.delete('/users/:id')
 
+app.get('/api/users/widgets', usersController.getUsersWidgets)
+app.post('/api/users/widgets', usersController.createUsersWidgets)
+
