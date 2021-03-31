@@ -1,0 +1,114 @@
+.weather-widget {
+    height: 150px;
+    width: 300px;
+    background-color: #0f0f0f;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.weather-container {
+    height: 150px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.weather-logo {
+    position: relative;
+}
+
+.weather-info {
+    justify-self: flex-start;
+}
+
+.weather-info .temp {
+    color: white;
+    font-weight: 300;
+    font-family: Helvetica;
+    align-self: flex-start;
+    justify-self: flex-start;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.weather-info .descrip {
+    color: white;
+    font-weight: 300;
+    font-family: Helvetica;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.weather-info .location {
+    color: white;
+    font-weight: 300;
+    font-family: Helvetica;
+    align-self: flex-start;
+    justify-self: flex-start;
+    font-size: 25px;
+    margin-top: -5px;
+    margin-bottom: 0;
+}
+
+
+.weather-logo p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.settings-icon {
+    color: white;
+    position: absolute;
+    top: 95px;
+    right: 80px;
+    opacity: 0;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.weather-widget:hover .settings-icon {
+    opacity: 1;
+}
+
+.search-form {
+    background-color: #0f0f0f;
+    height: 100px;
+    width: 260px;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 0.3s linear;
+    margin-left: 30px;
+}
+
+.search-form input {
+    background-color: #0f0f0f;
+    height: 30px;
+    width: 200px;
+    color: white;
+    font-family: Helvetica;
+    font-size: 20px;
+    border-style: none;
+}
+
+.search-form input:focus {
+    outline: none;
+}
+
+.hidden {
+    opacity: 0;
+}
