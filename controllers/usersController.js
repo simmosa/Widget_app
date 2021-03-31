@@ -5,7 +5,10 @@ const saltRounds = 10;
 
 
 
-function userLoggedIn(req, res) {}
+function userLoggedIn(req, res) {
+    //return the session user ID.
+    res.json({loggedInUserId: req.session.user_id})
+}
 
 function newSession(req, res) {
     pool.query('SELECT * FROM users Where email = $1;', [req.body.email], (err, db) => {
@@ -25,9 +28,22 @@ function newSession(req, res) {
 }
 
 function endSession(req, res) {
-    // save the loaded widgets
+
+    // delete previous widget entry in database
+    pool.query('DELETE FROM userWidgets WHERE id = $1', [req.sessions.user_id], () => {
+        //return message if needed
+        // res.json({ message: `deleted`})
+    })
+
+    // add new widgets entry to save the current loaded widgets
+    pool.query(
+        'INSERT INTO userWidgets (user_id, widgets) VALUES($1, $2)', [req.session.user_id, req.body.widgets], (err, db) =>{
+            //return something if we like
+        }
+    )
+
     //destroy the session
-    // req.session.destroy()
+    req.session.destroy()
 }
 
 function createUser(req,res) {

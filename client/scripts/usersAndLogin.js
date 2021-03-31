@@ -51,7 +51,16 @@ const logoutBtn = document.querySelector('.logout-btn')
 function handleLogout() {
     // save the widgets that the user has enabled
     // saveUserState()
+    // axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
+
+    // })
+
     displayLogoutState()
+
+    //for testing purposes, get the session user id..
+    axios.get('/api/sessions',{}).then(res => {
+        document.body.appendChild(res.data.loggedInUserId)
+    })
 }
 
 logoutBtn.addEventListener('click', handleLogout)
