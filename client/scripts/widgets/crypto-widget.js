@@ -6,6 +6,9 @@ function createWidgetBody() {
     cryptoWidgetHTML = `
         <div class="crypto-widget-container">
             <div class="crypto-details-container">
+                <form method="" class="crypto-search-form">
+                    <input type="text" class="crypto-search-input" placeholder="Search ticker...">
+                </form>
                 <img src="" class="crypto-image">
                 <div class="crypto-price">
                     <span class="crypto-value-descriptor">Current price: </span>
@@ -36,8 +39,8 @@ function createWidgetBody() {
     cryptoWidget.innerHTML = cryptoWidgetHTML
     document.body.append(cryptoWidget)
 
-    let cryptoWidgetContainer = document.querySelector('.crypto-widget-container')
-    cryptoWidgetContainer.prepend(cryptoSearchForm)
+    // let cryptoWidgetContainer = document.querySelector('.crypto-widget-container')
+    // cryptoWidgetContainer.prepend(cryptoSearchForm)
 }
 createWidgetBody()
 
