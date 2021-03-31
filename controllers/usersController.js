@@ -50,18 +50,8 @@ function createUser(req,res) {
     bcrypt.genSalt(saltRounds, function(err, salt) { 
         bcrypt.hash(req.body.password, salt, function(err, passwordDigest) {
             pool.query(
-<<<<<<< HEAD
                 'INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) returning *', [req.body.firstName, req.body.lastName, req.body.email, passwordDigest], (err, db) => {
                     res.json( {user: db.rows[0], name: db.rows[0].first_name} )
-=======
-                'INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) returning *', [
-                    req.body.firstName, 
-                    req.body.lastName, 
-                    req.body.email, 
-                    passwordDigest], 
-                    (err, db) => {
-                    res.json({ user: db.rows[0] })
->>>>>>> 08f8d6a (Updated crypto widget.)
             })
         }); 
     }); 
