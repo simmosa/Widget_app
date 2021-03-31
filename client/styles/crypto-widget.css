@@ -12,7 +12,7 @@
     justify-content: left;
     align-items: center;
     border: 2px solid #23B5D3;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px black;
 }
 
 .crypto-search-input {

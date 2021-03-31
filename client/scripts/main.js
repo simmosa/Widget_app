@@ -71,6 +71,9 @@ grid.on('added', (e, items) => {
         case "cryptoWidget": widgets.push(new CryptoWidget(items[0]));
         document.querySelector('.sidebar-crypto-widget').classList.add('hide-sidebar-widget')
         break;
+        case "weatherWidget": widgets.push(new WeatherWidget(items[0]));
+        document.querySelector('.sidebar-weather-widget').classList.add('hide-sidebar-widget')
+        break;
     }
     currentlyAddingWidget = false;
   }
