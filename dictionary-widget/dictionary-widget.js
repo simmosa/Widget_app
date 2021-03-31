@@ -14,7 +14,7 @@ function createDictionaryInterface() {
         </div>
     `
 
-    let dictionaryWidget = document.createElement('div')
+    let dictionaryWidget = document.querySelector('div')
     dictionaryWidget.classList.add('dictionary-widget')
     dictionaryWidget.innerHTML = dictionaryWidgetHTML
     document.body.append(dictionaryWidget)

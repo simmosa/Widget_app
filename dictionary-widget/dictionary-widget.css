@@ -22,6 +22,14 @@ h5 {
     color: whitesmoke;
 }
 
+.word-container {
+    margin: 10px 10px 10px 10px;
+}
+
+.dictionary-word-search {
+    margin: 10px 10px 0px 10px;
+}
+
 /* .crypto-widget {
     background-color:#0f0f0f;
     width: 750px;

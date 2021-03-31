@@ -1,52 +1,12 @@
 
-let cryptoSearchForm = document.querySelector('.crypto-search-form')
-let cryptoSearchInput = document.querySelector('.crypto-search-input')
+function retrieveData(cryptoSearchInput) {
 
-function createWidgetBody() {
-    cryptoWidgetHTML = `
-        <div class="crypto-widget-container">
-            <div class="crypto-details-container">
-                <form method="" class="crypto-search-form">
-                    <input type="text" class="crypto-search-input" placeholder="Search ticker...">
-                </form>
-                <img src="" class="crypto-image">
-                <div class="crypto-price">
-                    <span class="crypto-value-descriptor">Current price: </span>
-                    <span class="price"></span>
-                </div>
-                <div class="crypto-day-high">
-                    <span class="crypto-value-descriptor">24 hour high: </span> 
-                    <span class="day-high"></span>
-                </div>
-                <div class="crypto-day-low">
-                    <span class="crypto-value-descriptor">24 hour low: </span>
-                    <span class="day-low"></span>
-                </div>
-                <div class="crypto-day-change">
-                    <span class="crypto-value-descriptor">24 hour change: </span>
-                    <span class="day-change"></span>
-                    <span class="day-low">%</span>
-                </div>
-            </div>
-        </div>
-        <div class="crypto-chart-canvas">
-            <canvas id="cryptoChart"><canvas>
-        </div>
-    `
+    cryptoSearchInput = document.querySelector('.crypto-search-input')
 
-    let cryptoWidget = document.createElement('div')
-    cryptoWidget.classList.add('crypto-widget')
-    cryptoWidget.innerHTML = cryptoWidgetHTML
-    document.body.append(cryptoWidget)
+    if (cryptoSearchInput.value === "") {
+        cryptoSearchInput.value = 'BTC';
+    }
 
-    // let cryptoWidgetContainer = document.querySelector('.crypto-widget-container')
-    // cryptoWidgetContainer.prepend(cryptoSearchForm)
-}
-createWidgetBody()
-
-cryptoSearchForm.addEventListener('submit', event => {
-    event.preventDefault()
-    
     axios.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoSearchInput.value}&tsyms=USD`).then(res => {
         let cryptoResults = res.data.DISPLAY[cryptoSearchInput.value.toUpperCase()].USD
         let cryptoImage = cryptoResults.IMAGEURL
@@ -85,19 +45,7 @@ cryptoSearchForm.addEventListener('submit', event => {
                 return Promise.reject(new Error(response.statusText));
             }
         }
-        // // Convert time to 12 hour format
-        // function tConvert(graphTime) {
-        //     // Check correct graphTime format and split into components
-        //     graphTime = graphTime.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [graphTime];
-          
-        //     if (graphTime.length > 1) { // If graphTime format correct
-        //       graphTime = graphTime.slice(1);  // Remove full string match value
-        //       graphTime[5] = +graphTime[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-        //       graphTime[0] = +graphTime[0] % 12 || 12; // Adjust hours
-        //     }
-        //     return graphTime.join (''); // return adjusted time or original string
-        // }
-        /// Charts ///
+       
         async function printCryptoChart() {
             let { times, prices } = await cryptoData()
             
@@ -116,8 +64,6 @@ cryptoSearchForm.addEventListener('submit', event => {
                 data: {
                 labels: times
                         .map(time => `${new Date(time * 1000).getHours()}:00`),
-                // labels: times
-                //         .map(time => `${new Date(time * 1000).getHours()}:00`).map(time => tConvert(time)),
                 datasets: [{
                     label: '$',
                     data: prices,
@@ -193,8 +139,7 @@ cryptoSearchForm.addEventListener('submit', event => {
         async function updateCryptoPrice() {
             let { times, prices } = await cryptoData()
             let currentPrice = prices[prices.length-1].toFixed(2);
-            
-            document.getElementById("cryptoPrice").innerHTML = "$" + currentPrice;
+            // document.getElementById("cryptoPrice").innerHTML = "$" + currentPrice;
         }
             
         updateCryptoPrice()
@@ -208,4 +153,57 @@ cryptoSearchForm.addEventListener('submit', event => {
             document.querySelector('.day-change').style.color = "whitesmoke";
         }
     })
-})
+}
+
+function createWidgetBody(widgetDiv) {
+    cryptoWidgetHTML = `
+    <div class="crypto-widget-container">
+        <div class="crypto-details-container">
+        <form method="" class="crypto-search-form">
+        <input type="text" class="crypto-search-input" placeholder="Search ticker...">
+        </form>
+        <img src="" class="crypto-image">
+        <div class="crypto-price">
+        <span class="crypto-value-descriptor">Current price: </span>
+        <span class="price"></span>
+        </div>
+        <div class="crypto-day-high">
+        <span class="crypto-value-descriptor">24 hour high: </span> 
+        <span class="day-high"></span>
+        </div>
+        <div class="crypto-day-low">
+        <span class="crypto-value-descriptor">24 hour low: </span>
+        <span class="day-low"></span>
+        </div>
+        <div class="crypto-day-change">
+        <span class="crypto-value-descriptor">24 hour change: </span>
+        <span class="day-change"></span>
+        <span class="day-low">%</span>
+        </div>
+        </div>
+        </div>
+        <div class="crypto-chart-canvas">
+        <canvas id="cryptoChart"><canvas>
+    </div>
+    `
+    
+    cryptoWidget = document.createElement('div')
+    cryptoWidget.classList.add('crypto-widget')
+    cryptoWidget.innerHTML = cryptoWidgetHTML
+    widgetDiv.append(cryptoWidget)
+
+    let cryptoSearchForm = document.querySelector('.crypto-search-form')
+    let cryptoSearchInput = document.querySelector('.crypto-search-input')
+    retrieveData(cryptoSearchInput)
+
+    cryptoSearchForm.addEventListener('submit', event => {
+        event.preventDefault()
+        retrieveData(cryptoSearchInput)
+    })
+}
+
+function initialiseCryptoWidget(widgetDiv) {
+    createWidgetBody(widgetDiv)
+}
+
+
