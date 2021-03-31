@@ -9,7 +9,10 @@ function createWidget(options = {}){
 }
 
 function saveWidgetProfileData(){
-    console.log('running save')
+    let widgetsSaveProfile = grid.save()
+    axios.post('/api/users/widgets', {userSave: widgetsSaveProfile}).then(res => {
+        console.log('running save')
+    })
 }
 
 function addSideBarWidgetBack(item){

@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
-
 function userLoggedIn(req, res) {
+    console.log('session user id is that is logged in is ' + req.session.user_id)
     //return the session user ID.
     res.json({loggedInUserId: req.session.user_id})
 }
@@ -18,6 +18,7 @@ function newSession(req, res) {
             (bcrypt.compare(req.body.password, db.rows[0].password, function(err, result) {
                 if (result == true) {
                     req.session.user_id = db.rows[0].id
+                    console.log(`New Session user id is ${req.session.user_id}`)
                     res.json({ login: 'success', name: `${db.rows[0].first_name}`})
                 } else if (result == false) {
                     res.json({ login: 'password incorrect' })
@@ -57,10 +58,12 @@ function createUser(req,res) {
     }); 
 }
 
+
+
 function getUsersWidgets(req,res) {
+    // gives the widgets of the session user
     pool.query('SELECT * FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) => {
-        let resObject = JSON.parse(db.data.widgets)
-        res.resObject
+        res.json({savedWidgets: db.rows[0].widgets})
     })
 }
 
@@ -68,8 +71,9 @@ function createUsersWidgets(req, res) {
     //first we delete the previous entry in the table for the user then add the updated one.
     pool.query('DELETE FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) =>{})
 
-    let usersWidgets = JSON.stringify(req.data.widgets)
+    let usersWidgets = JSON.stringify(req.body.userSave)
     pool.query('INSERT INTO userswidgets (user_id, widgets) VALUES ($1, $2)', [req.session.user_id, usersWidgets], (err, db) => {
+        res.json({message: "user widgets saved sucessfully"})
     })
 }
 

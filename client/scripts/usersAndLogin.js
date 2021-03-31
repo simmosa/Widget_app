@@ -49,20 +49,14 @@ signupForm.addEventListener('submit', handleNewUser)
 const logoutBtn = document.querySelector('.logout-btn')
 
 function handleLogout() {
+    console.log("logout activated")
     // save the widgets that the user has enabled
     // saveUserState()
     axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
         
-     })
+        })
 
     displayLogoutState()
-
-////for testing purposes, get the session user id..
-    axios.get('/api/sessions',{}).then(res => {
-        let sessionUserId = document.createElement('p')
-        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
-        document.body.appendChild(sessionUserId)
-    })
 }
 
 logoutBtn.addEventListener('click', handleLogout)
@@ -83,13 +77,6 @@ function displayWelcomeUser(name) {
     loginDiv.classList.add('hide-logins-items')
     const signupDiv = document.querySelector('.signup-div')
     signupDiv.classList.add('hide-logins-items')
-
- /// for testing purposes displaying session user ID
-    axios.get('/api/sessions',{}).then(res => {
-        let sessionUserId = document.createElement('p')
-        sessionUserId.textContent = `Session user id is ${res.data.loggedInUserId}`
-        document.body.appendChild(sessionUserId)
-    })
 }
 
 function displayLogoutState() {
@@ -112,6 +99,17 @@ function displayLogoutState() {
     passwordInput.value = ""
 }
 
+function currentUser() {
+    axios.get('/api/sessions',{}).then(res => {
+        console.log('current user id is ' + res.data.loggedInUserId)
+    })
+}
+ 
+function getUserWidgets() {
+    axios.get('/api/users/widgets',{}).then(res => {
+        console.log(res.data.savedWidgets)
+    })
+}
 
 
 
