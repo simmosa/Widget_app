@@ -3,9 +3,22 @@ let widgetIDCount = 0;
 function createWidget(options = {}){
     widgetIDCount++;
     options.content = `<div data-widgetID="${widgetIDCount}"></div>`
-
-    console.log(options)
     grid.addWidget(options)
 
     return widgetIDCount;
+}
+
+function saveWidgetProfileData(){
+    console.log('running save')
+}
+
+function addSideBarWidgetBack(item){
+    switch(item.gridstackNode.id){
+        case 'calculatorWidget': document.querySelector('.sidebar-calculator-widget').classList.remove('hide-sidebar-widget');
+        break;
+        case 'clockWidget': document.querySelector('.sidebar-clock-widget').classList.remove('hide-sidebar-widget')
+        break;
+        case 'photoWidget': document.querySelector('.sidebar-photo-widget').classList.remove('hide-sidebar-widget')
+        break;
+    }
 }
