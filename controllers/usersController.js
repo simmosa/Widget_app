@@ -5,7 +5,6 @@ const saltRounds = 10;
 
 
 function userLoggedIn(req, res) {
-    console.log('session user id is that is logged in is ' + req.session.user_id)
     //return the session user ID.
     res.json({loggedInUserId: req.session.user_id})
 }
@@ -18,7 +17,6 @@ function newSession(req, res) {
             (bcrypt.compare(req.body.password, db.rows[0].password, function(err, result) {
                 if (result == true) {
                     req.session.user_id = db.rows[0].id
-                    console.log(`New Session user id is ${req.session.user_id}`)
                     res.json({ login: 'success', name: `${db.rows[0].first_name}`})
                 } else if (result == false) {
                     res.json({ login: 'password incorrect' })
@@ -57,7 +55,6 @@ function createUser(req,res) {
         }); 
     }); 
 }
-
 
 
 function getUsersWidgets(req,res) {
