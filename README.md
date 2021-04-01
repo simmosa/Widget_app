@@ -7,7 +7,7 @@ Widget Wizard integrates a minimalistic interface with an animated side bar that
 
 
 
-![Home Interface](https://github.com/jtabba/Widget_app/tree/main/client/images/README_images/interface_resized.jpeg)
+![Home Interface](https://github.com/jtabba/Widget_app/blob/main/client/images/README_images/interface_resized.jpeg)
 
 Through the widget dock users can also access the login and sign up features. Signing up and logging in enables the grid layout to be saved to where ever the logged in user has positioned them on the interface.
 
