@@ -11,6 +11,8 @@ Widget Wizard integrates a minimalistic interface with an animated side bar that
 
 Through the widget dock users can also access the login and sign up features. Signing up and logging in enables the grid layout to be saved to where ever the logged in user has positioned them on the interface.
 
+![Home Interface](https://github.com/jtabba/Widget_app/blob/main/client/images/README_images/sidebar_resized.jpeg)
+
 The current widget list includes a:
 
 - Clock - display your current time.
@@ -18,6 +20,9 @@ The current widget list includes a:
 - Dictionary and thesaurus widget - search for word meanings and synonyms.
 - Random photo generator - view and change images at the touch of a button.
 - Weather widget - see the daily weather forecast based on your location.
+
+![Home Interface](https://github.com/jtabba/Widget_app/blob/main/client/images/README_images/widgets_resized.jpeg)
+
 
 ### Widget Wizard link
 Widget Wizard can be accessed here: LINK
