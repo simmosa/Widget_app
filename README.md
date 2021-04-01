@@ -3,7 +3,7 @@
 Widget Wizard is an application which a user can set as their home page to allow the immediate access of various widgets. All widgets possess their own unique functionality and provide the users with tools and information which are conveniently and immediately accessible without navigating to other web pages.
 
 ## Features
-Widget Wizard integrates a minimalistic interface with an animated side bar which holds all the widgets. Clicking the top right menu opens the widget dock and allows access to the widget.
+Widget Wizard integrates a minimalistic interface with an animated side bar that holds all the widgets. Clicking the top right menu opens the widget dock and allows access to the widgets.
 
 Through the widget dock users can also access the login and sign up features. Signing up and logging in enables the grid layout to be saved to where ever the logged in user has positioned them on the interface.
 
@@ -56,9 +56,13 @@ Overall, the communication and collaboration of members in conjunction with thei
 ## Lessons learned
 - Using git
 - Planning and collaboration 
-- Using NodeJS with new libraries
+- Using NodeJS for server-side development
 - Communicating client, server and database information
+- Creating a multi-file web application
 - Troubleshooting git problems
+- Implementing BCrypt and express-session with NodeJS
+- Parsing and saving json into the database
+- Using classes
 - Deploying a NodeJS project to Heroku 
-- Creating widgets
+- Creating widgets using GridstackJS
 - Using new API’s
