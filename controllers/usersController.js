@@ -1,5 +1,5 @@
 const { Pool } = require('pg')
-const pool = new Pool({ database: 'wizard'})
+// const pool = new Pool({ database: 'wizard'})
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
