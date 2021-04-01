@@ -45,7 +45,7 @@
     margin-left: 5%;
     margin-bottom: 14px;
     display: grid;
-    grid-template-columns: 20% 30% 50%;
+    grid-template-columns: 20% 40% 40%;
 }
 
 .welcome-user-div {

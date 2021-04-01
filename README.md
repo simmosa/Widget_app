@@ -5,6 +5,10 @@ Widget Wizard is an application which a user can set as their home page to allow
 ## Features
 Widget Wizard integrates a minimalistic interface with an animated side bar that holds all the widgets. Clicking the top right menu opens the widget dock and allows access to the widgets.
 
+
+
+![Home Interface](https://github.com/jtabba/Widget_app/tree/main/client/images/README_images/interface_resized.jpeg)
+
 Through the widget dock users can also access the login and sign up features. Signing up and logging in enables the grid layout to be saved to where ever the logged in user has positioned them on the interface.
 
 The current widget list includes a:
@@ -54,7 +58,7 @@ Working as a team was enjoyable for all team members and everyone emerged with s
 Overall, the communication and collaboration of members in conjunction with their unique ideas and implementations lead to the success of Widget Wizard. It was a rewarding experience with an outcome that we are all proud of.
 
 ## Lessons learned
-- Using git
+- Using git and Github
 - Planning and collaboration 
 - Using NodeJS for server-side development
 - Communicating client, server and database information
