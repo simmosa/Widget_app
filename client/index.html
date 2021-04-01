@@ -41,32 +41,36 @@
     </div>
     <nav class="side-bar">
         <div class="user-profile-container">
+            <div class="login-menu-div">
+                <span class="login-span" onclick="displayLogin()">login</span>
+                <span class="signup-span" onclick="displaySignup()">sign up</span>
+            </div>
             <div class="welcome-user-div hide-logins-items">
                 <button class="logout-btn">logout</button>
-                <button class="user-profile-btn">profile</button>
+                <!-- <button class="user-profile-btn">profile</button> -->
             </div>
-            <div class="login-div">
-                <h3 class="login-h3">Login</h3>
+            <div class="login-div hide-logins-items">
                 <form action="" class="login_form">       
                     <label for="">email</label>
-                    <input type="email" class="login_email_input">       
+                    <input type="email" class="login_email_input" onclick="clearErrorMessage()">       
                     <label for="">password</label>
-                    <input type="password" class="login_password_input">       
-                    <button class="submit-btn">Submit</button>
+                    <input type="password" class="login_password_input" onclick="clearErrorMessage()">       
+                    <button class="login_form-submit-btn">submit</button>
+                    <span><em class="login-error-span"></em></span>
                 </form>
             </div>
-            <div class="signup-div">
-                <h3 class="signup-h3">Sign Up</h3>
+            <div class="signup-div hide-logins-items">
                 <form action="" class="signup_form">
-                    <label for="">Firstname:</label>
-                    <input type="text" class="first_name_input" name="first_name">        
-                    <label for="">Lastname:</label>
-                    <input type="text" class="last_name_input" name="last_name">       
-                    <label for="">Email:</label>
-                    <input type="text" class="email_input" name="email">       
-                    <label for="">Password:</label>
-                    <input type="password" class="password_input" name="password">        
-                    <button>Submit</button>
+                    <label for="">firstname</label>
+                    <input type="text" class="first_name_input" name="first_name" onclick="clearErrorMessage()">        
+                    <label for="">lastname</label>
+                    <input type="text" class="last_name_input" name="last_name" onclick="clearErrorMessage()">       
+                    <label for="">email</label>
+                    <input type="text" class="email_input" name="email" onclick="clearErrorMessage()">       
+                    <label for="">password</label>
+                    <input type="password" class="password_input" name="password" onclick="clearErrorMessage()">        
+                    <button class="signup_form-submit-btn">submit</button>
+                    <span><em class="signup-error-span"></em></span>
                 </form>
             </div>
         </div>

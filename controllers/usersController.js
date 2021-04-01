@@ -28,21 +28,21 @@ function newSession(req, res) {
 
 function endSession(req, res) {
 
-    // delete previous widget entry in database
-    pool.query('DELETE FROM userWidgets WHERE id = $1', [req.session.user_id], () => {
-        //return message if needed
-        // res.json({ message: `deleted`})
-    })
+    // // delete previous widget entry in database
+    // pool.query('DELETE FROM userWidgets WHERE id = $1', [req.session.user_id], () => {
+    //     //return message if needed
+    //     // res.json({ message: `deleted`})
+    // })
 
-    // add new widgets entry to save the current loaded widgets
-    pool.query(
-        'INSERT INTO userWidgets (user_id, widgets) VALUES($1, $2)', [req.session.user_id, req.body.widgets], (err, db) =>{
-            //return something if we like
-        }
-    )
+    // // add new widgets entry to save the current loaded widgets
+    // pool.query(
+    //     'INSERT INTO userWidgets (user_id, widgets) VALUES($1, $2)', [req.session.user_id, req.body.widgets], (err, db) =>{
+    //         //return something if we like
+    //     }
+    // )
 
     //destroy the session
-    req.session.destroy(req.session.user_id)
+    req.session.destroy()
 }
 
 function createUser(req,res) {
@@ -61,7 +61,9 @@ function createUser(req,res) {
 function getUsersWidgets(req,res) {
     // gives the widgets of the session user
     pool.query('SELECT * FROM userswidgets WHERE user_id = $1;', [req.session.user_id], (err, db) => {
-        res.json({savedWidgets: db.rows[0].widgets})
+        if (db.rows.length > 0) {
+            res.json({savedWidgets: db.rows[0].widgets})
+        }
     })
 }
 

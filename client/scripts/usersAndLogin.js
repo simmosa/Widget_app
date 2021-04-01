@@ -3,6 +3,10 @@
 
 const loginSpan = document.querySelector('.login-span')
 const signupSpan = document.querySelector('.signup-span')
+const loginDiv = document.querySelector('.login-div')
+const signupDiv = document.querySelector('.signup-div')
+
+const loginMenuDiv = document.querySelector('.login-menu-div')
 
 const loginForm = document.querySelector('.login_form')
 const loginEmailInput = document.querySelector('.login_email_input')
@@ -14,28 +18,30 @@ const lastNameInput = document.querySelector('.last_name_input')
 const emailInput = document.querySelector('.email_input')
 const passwordInput = document.querySelector('.password_input')
 
-function handleDisplayLogin() {
-    loginForm.classList.remove('hide-logins-items')
-    signupForm.classList.add('hide-logins-items')
+const loginErrorSpan = document.querySelector('.login-error-span')
+const signupErrorSpan = document.querySelector('.signup-error-span')
+
+
+function displayLogin() {
+    loginDiv.classList.remove('hide-logins-items')
+    signupDiv.classList.add('hide-logins-items')
 }
-function handleDisplaySignup() {
-    loginForm.classList.add('hide-logins-items')
-    signupForm.classList.remove('hide-logins-items')
 
+function displaySignup() {
+    loginDiv.classList.add('hide-logins-items')
+    signupDiv.classList.remove('hide-logins-items')
 }
-
-// loginSpan.addEventListener('hover', handleDisplayLogin)
-// signupSpan.addEventListener('click', handleDisplaySignup)
-
-
 
 function handleLogin(e) {
     e.preventDefault()
-
     axios.post('/api/sessions', { email: loginEmailInput.value, password: loginPasswordInput.value}).then(res => {
         if (res.data.login == 'success') {  
             displayWelcomeUser(res.data.name)
             loadUserWidgets()
+        } else if (res.data.login == 'password incorrect') {
+            displayPasswordIncorrect()
+        } else {
+            displayPleaseSignUp()
         }
     })
 }
@@ -45,12 +51,6 @@ loginForm.addEventListener('submit', handleLogin)
 
 ///////////                                            ///////////////////
 //////////          new user from and handler         ///////////////////
-
-// const signupForm = document.querySelector('.signup_form')
-// const firstNameInput = document.querySelector('.first_name_input')
-// const lastNameInput = document.querySelector('.last_name_input')
-// const emailInput = document.querySelector('.email_input')
-// const passwordInput = document.querySelector('.password_input')
 
 function handleNewUser(e) {
     e.preventDefault()
@@ -78,6 +78,7 @@ function handleLogout() {
     console.log("logout activated")
     // save the widgets that the user has enabled
     // saveUserState()
+    // tuns out, only need to destroy the session.user_id
     axios.delete('/api/sessions', { widgets: "settings"}).then(res => {
         
         })
@@ -99,10 +100,10 @@ function displayWelcomeUser(name) {
     welcomeMessageH4.textContent = `Welcome, ${name}`
     welcomeUserDiv.prepend(welcomeMessageH4)
 
-    const loginDiv = document.querySelector('.login-div')
     loginDiv.classList.add('hide-logins-items')
-    const signupDiv = document.querySelector('.signup-div')
     signupDiv.classList.add('hide-logins-items')
+
+    loginMenuDiv.classList.add('hide-logins-items')
 }
 
 function displayLogoutState() {
@@ -111,10 +112,10 @@ function displayLogoutState() {
     welcomeUserDiv.classList.add('hide-logins-items')    
     welcomeUserDiv.removeChild(welcomeUserDiv.childNodes[0]);      
 
-    const loginDiv = document.querySelector('.login-div')
-    loginDiv.classList.remove('hide-logins-items')
-    const signupDiv = document.querySelector('.signup-div')
-    signupDiv.classList.remove('hide-logins-items')
+    loginDiv.classList.add('hide-logins-items')
+    signupDiv.classList.add('hide-logins-items')
+
+    loginMenuDiv.classList.remove('hide-logins-items')
 
     // clear the forms
     loginEmailInput.value = ""
@@ -124,6 +125,37 @@ function displayLogoutState() {
     emailInput.value = ""
     passwordInput.value = ""
 }
+
+function displayPasswordIncorrect() {
+    loginErrorSpan.textContent = "please try again"
+}
+
+function clearErrorMessage() {
+    loginErrorSpan.textContent = ""
+    signupErrorSpan.textContent = ""
+
+}
+
+function displayPleaseSignUp() {
+    loginErrorSpan.textContent = "please sign up"
+}
+
+function incompleteSignupForm() {
+    console.log("checking from")
+    let incompleteStatus = false
+    if (firstNameInput.value == "") {incompleteStatus = true}
+    else if (lastNameInput.value == "") {incompleteStatus = true}
+    else if (emailInput.value == "") {incompleteStatus = true}
+    else if (passwordInput.value == "") {incompleteStatus = true}
+
+    return incompleteStatus
+}
+
+function displayIncompleteSignupMessage() {
+    signupErrorSpan.textContent = "form incomplete"
+
+}
+
 
 ////////////////  Handy functions
 
