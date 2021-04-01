@@ -14,8 +14,10 @@ function retrieveDictionaryData(dictionarySearchInput) {
         let dictionarySearchSynonyms = res.data[0].meanings[0].definitions[0].synonyms
 
         if (dictionarySearchSynonyms) {
-            if (dictionarySearchSynonyms.length > 0) {
+            if ((dictionarySearchSynonyms.length > 0) && (dictionarySearchSynonyms.length < 11)) {
                 var joinedSynonyms = `${dictionarySearchSynonyms.join(', ')}.`
+            } else if (dictionarySearchSynonyms.length > 11) {
+                var joinedSynonyms = `${dictionarySearchSynonyms.slice(0-10).join(', ')}.`
             } 
         }
 
@@ -48,12 +50,12 @@ function createDictionaryWidget(widgetDiv) {
                 </form>
             </div>
             <div class="word-container">
-                <p class="dictionary-word">test</p>
+                <p class="dictionary-word"></p>
                 <span class="dictionary-word-action">word</span>
-                <p class="dictionary-word-meaning">test</p>
-                <p class="dictionary-word-example">example</p>
+                <p class="dictionary-word-meaning"></p>
+                <p class="dictionary-word-example"></p>
                 <p class="dictionary-synonym">Synonyms</p>
-                <p class="dictionary-word-synonyms">test</p>
+                <p class="dictionary-word-synonyms"></p>
             </div>
         </div>
     `
