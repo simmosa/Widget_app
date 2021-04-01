@@ -13,6 +13,7 @@ if (process.env.PRODUCTION) {
   pool = new Pool({
     database: 'wizard'
   })
+}
 
 
 
