@@ -1,7 +1,19 @@
 const { Pool } = require('pg')
 const pool = new Pool({ database: 'wizard'})
+
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
+let pool;
+if (process.env.PRODUCTION) {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  })
+} else {
+  pool = new Pool({
+    database: 'wizard'
+  })
+
 
 
 function userLoggedIn(req, res) {
