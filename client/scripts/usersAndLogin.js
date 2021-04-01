@@ -54,16 +54,21 @@ loginForm.addEventListener('submit', handleLogin)
 
 function handleNewUser(e) {
     e.preventDefault()
-
-    axios.post('/api/users', {
-        firstName: firstNameInput.value, 
-        lastName: lastNameInput.value, 
-        email: emailInput.value, 
-        password: passwordInput.value
-    }).then(res => {
-        displayWelcomeUser(res.data.name)
-        saveWidgetProfileData();         
-    });  
+    console.log("create new user pressed")
+    if (incompleteSignupForm()) {
+        displayIncompleteSignupMessage()
+    } else {
+        console.log("sending new user request to server")
+        axios.post('/api/users', {
+            firstName: firstNameInput.value, 
+            lastName: lastNameInput.value, 
+            email: emailInput.value, 
+            password: passwordInput.value
+        }).then(res => {
+            displayWelcomeUser(res.data.name)
+            saveWidgetProfileData();         
+        })  
+    }
 }
 
 signupForm.addEventListener('submit', handleNewUser)

@@ -1,7 +1,21 @@
 const { Pool } = require('pg')
-const pool = new Pool({ database: 'wizard'})
+// const pool = new Pool({ database: 'wizard'})
+
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
+let pool;
+if (process.env.PRODUCTION) {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  })
+} else {
+  pool = new Pool({
+    database: 'wizard'
+  })
+}
+
 
 
 function userLoggedIn(req, res) {
@@ -10,7 +24,9 @@ function userLoggedIn(req, res) {
 }
 
 function newSession(req, res) {
+
     pool.query('SELECT * FROM users Where email = $1;', [req.body.email], (err, db) => {
+        console.log(err)
         if (db.rows.length<1) { 
             res.json( { login: 'no email match' })
         } else {
@@ -46,11 +62,15 @@ function endSession(req, res) {
 }
 
 function createUser(req,res) {
+
     bcrypt.genSalt(saltRounds, function(err, salt) { 
         bcrypt.hash(req.body.password, salt, function(err, passwordDigest) {
             pool.query(
                 'INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) returning *', [req.body.firstName, req.body.lastName, req.body.email, passwordDigest], (err, db) => {
+                        // console.log('db row id ' + db.rows[0].id)
+                        // console.log('session user id ' + req.session.user_id)
                     req.session.user_id = db.rows[0].id
+                        // console.log('session user set to id ' + req.session.user_id)
                     res.json( {user: db.rows[0], name: db.rows[0].first_name} )
             })
         }); 
