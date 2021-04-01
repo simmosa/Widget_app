@@ -1,26 +1,53 @@
 
 .login_form, .signup_form {
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 31% 69%;
 }
 
-.login-h3, .signup-h3 {
-    margin-left: 10%;
+.login_form label, .signup_form label {
+    padding-top: 5px;
+}
+
+.login_form-submit-btn, .signup_form-submit-btn, .logout-btn {
+    margin-top: 4px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+.logout-btn {
+    margin-top: 14px;
+}
+
+.login-span:hover, .signup-span:hover {
+    cursor: pointer;
+    font-size: 103%;
+    margin-top: -3px;
+}
+
+.login-menu-div {
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
 }
 
 .welcome-user-div {
     width: 80%;
     margin-left: 4%;
     display: grid;
-    grid-template-columns: 64% 22% 22%;
+    grid-template-columns: 69% 22% 17%;
     grid-template-rows: 50%;
 }
-.welcome-user-div button {
-    border-radius: 30%;
-    /* padding: 3px 10px; */
+.login-error-span, .signup-error-span{
+    margin-top: 4px;
+    margin-left: 10px;
 }
 .hide-logins-items {
     display: none;
+}
+.user-profile-container {
+    margin-bottom: 20px;
 }
