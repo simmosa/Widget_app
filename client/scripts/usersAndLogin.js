@@ -23,11 +23,17 @@ const signupErrorSpan = document.querySelector('.signup-error-span')
 
 
 function displayLogin() {
+    loginSpan.style.color = '#F4F44F';
+    signupSpan.style.color = 'white';
     loginDiv.classList.remove('hide-logins-items')
     signupDiv.classList.add('hide-logins-items')
 }
 
+displayLogin();
+
 function displaySignup() {
+    signupSpan.style.color = '#F4F44F';
+    loginSpan.style.color = 'white';
     loginDiv.classList.add('hide-logins-items')
     signupDiv.classList.remove('hide-logins-items')
 }

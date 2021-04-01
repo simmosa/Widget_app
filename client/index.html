@@ -42,8 +42,8 @@
     <nav class="side-bar">
         <div class="user-profile-container">
             <div class="login-menu-div">
-                <span class="login-span" onclick="displayLogin()">login</span>
-                <span class="signup-span" onclick="displaySignup()">sign up</span>
+                <span class="login-span" onclick="displayLogin()">Login</span>
+                <span class="signup-span" onclick="displaySignup()">Sign up</span>
             </div>
             <div class="welcome-user-div hide-logins-items">
                 <button class="logout-btn">logout</button>
@@ -75,11 +75,6 @@
             </div>
         </div>
         <div class="widget-list-container">
-            <div class="grid-stack-item ui-draggable newWidget sidebar-calculator-widget" gs-x="8" gs-y="2" gs-w="1" gs-h="1" gs-id="calculatorWidget" draggable="true">
-                <div>calculator!</div>
-                <div class="grid-stack-item-content" >
-                </div>
-            </div>
             <div class="grid-stack-item ui-draggable newWidget sidebar-clock-widget" gs-x="8" gs-y="2" gs-w="3" gs-h="1" gs-id="clockWidget" draggable="true">
                 <div><img src="/images/clockWidget.png" alt="" class="widget-img"></div>
                 <div class="grid-stack-item-content" >
@@ -122,6 +117,14 @@
 
 <div class="trash-can material-icons" ondragenter="setDragEnterTrashCan()" ondragleave="setDragLeaveTrashCan()">
     delete_forever
+</div>
+
+<div class="page-overlay">
+    <div>
+        <h1>Welcome to Widgets by Wizards</h1>
+        <h2>Click the menu icon to Start!</h2>
+    </div>
+    <span class="material-icons overlay-arrow">north_east</span>
 </div>
     
     <script src="/scripts/widgets/weather-widget.js"></script>

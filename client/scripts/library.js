@@ -57,7 +57,7 @@ function loadUserWidgets(){
               case "weatherWidget": widgets.push(new WeatherWidget(savedWidget))
               document.querySelector('.sidebar-weather-widget').classList.add('hide-sidebar-widget')
               break;
-              case "dictionaryWidget": widgets.push(new WeatherWidget(savedWidget))
+              case "dictionaryWidget": widgets.push(new DictionaryWidget(savedWidget))
               document.querySelector('.sidebar-dictionary-widget').classList.add('hide-sidebar-widget')
               break;
             }

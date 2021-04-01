@@ -3,9 +3,60 @@ body{
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
     color: white;
     background-color: #2a5560;
+}
+
+h1, h2{
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+.page-overlay{
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.overlay-arrow{
+    color: #F4F44F;
+    font-size: 12rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: arrowAnim 2s infinite;
+}
+
+@keyframes arrowAnim {
+    0%{
+        top: 50px;
+        right: 50px;
+    }
+    40%{
+        top: 20px;
+        right: 20px;
+    }
+    100%{
+        top: 50px;
+        right: 50px;
+    }
 }
 
 .grid-stack-placeholder{
@@ -17,10 +68,11 @@ h3{
 }
 
 input{
-    border-radius: 20px;
+    border-radius: 3px;
     outline: none;
     border: none;
     margin: 5px;
+    padding-left: 10px;
 }
 
 header{
@@ -33,6 +85,7 @@ header{
 
 .side-bar{
     height: 100vh;
+    padding-top: 25px;
     width: 20vw;
     background-color: #0B3C49;
     position: absolute;
@@ -43,6 +96,7 @@ header{
     flex-direction: column;
     transform: translate(101%);
     transition: all 200ms linear;
+    box-shadow: -2px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 .hamburger-icon{
@@ -53,12 +107,16 @@ header{
     right: 20px;
 }
 
+.hamburger-icon:hover{
+    cursor: pointer;
+}
+
 .hamburger-1, .hamburger-2, .hamburger-3{
     border-radius: 50px;
     width: 30px;
     height: 6px;
     margin-bottom: 8px;
-    background: black;
+    background: white;
     transition: transform 500ms;
 }
 
@@ -126,15 +184,23 @@ header{
 .widget-img{
     width:80%;
     height: 100%;
+    border-radius: 10px;
+}
+
+.newWidget > div{
+    display: grid;
+    place-items: center;
+    padding-bottom: 20px;
+}
+
+.widget-img:hover{
+    cursor: pointer;
 }
 
 .widget-list-container{
     width: 80%;
+    height: 100%;
     margin: 10px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     overflow: auto;
 }
 
