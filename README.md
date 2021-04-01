@@ -25,10 +25,10 @@ The current widget list includes a:
 
 
 ### Widget Wizard link
-Widget Wizard can be accessed here: LINK
+Widget Wizard can be accessed here: https://widget-wizard.herokuapp.com/
 
 # Development of back-end and front-end functionality
-Widget Wziard was a collaborative project with 4 team members. Each member was self-assigned to and involved in different aspects of its development. 
+Widget Wizard was a collaborative project with 4 team members. Each member was self-assigned to and involved in different aspects of its development. 
 
 
 ## Widget application development 
