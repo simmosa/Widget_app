@@ -27,6 +27,8 @@ function addSideBarWidgetBack(item){
         break;
         case 'weatherWidget': document.querySelector('.sidebar-weather-widget').classList.remove('hide-sidebar-widget')
         break;
+        case 'dictionaryWidget': document.querySelector('.sidebar-dictionary-widget').classList.remove('hide-sidebar-widget')
+        break;
     }
 }
 
@@ -54,6 +56,9 @@ function loadUserWidgets(){
               break;
               case "weatherWidget": widgets.push(new WeatherWidget(savedWidget))
               document.querySelector('.sidebar-weather-widget').classList.add('hide-sidebar-widget')
+              break;
+              case "dictionaryWidget": widgets.push(new DictionaryWidget(savedWidget))
+              document.querySelector('.sidebar-dictionary-widget').classList.add('hide-sidebar-widget')
               break;
             }
         })

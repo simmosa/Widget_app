@@ -10,20 +10,34 @@
     padding-top: 5px;
 }
 
-.login_form-submit-btn, .signup_form-submit-btn, .logout-btn {
+.login_form-submit-btn, .signup_form-submit-btn, .logout-btn {  
+    color: white;
+    background-color: #2a5560;
     margin-top: 4px;
     border-radius: 20px;
     outline: none;
     border: none;
 }
+
+.login_form-submit-btn:hover, .signup_form-submit-btn:hover, .logout-btn:hover {  
+    color: #F4F44F;
+    cursor: pointer;
+}
+
 .logout-btn {
     margin-top: 14px;
 }
 
+.login-span, .signup-span {
+    transition: all 50ms ease-out;
+    font-size: 1.5rem;
+}
+
 .login-span:hover, .signup-span:hover {
     cursor: pointer;
-    font-size: 103%;
+    font-size: 1.6rem;
     margin-top: -3px;
+    color: #F4F44F;
 }
 
 .login-menu-div {
@@ -49,5 +63,6 @@
     display: none;
 }
 .user-profile-container {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-left: 20px;
 }
