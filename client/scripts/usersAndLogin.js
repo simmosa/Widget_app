@@ -54,16 +54,19 @@ loginForm.addEventListener('submit', handleLogin)
 
 function handleNewUser(e) {
     e.preventDefault()
-
-    axios.post('/api/users', {
-        firstName: firstNameInput.value, 
-        lastName: lastNameInput.value, 
-        email: emailInput.value, 
-        password: passwordInput.value
-    }).then(res => {
-        displayWelcomeUser(res.data.name)
-        saveWidgetProfileData();         
-    });  
+    if (incompleteSignupForm()) {
+        displayIncompleteSignupMessage()
+    } else {
+        axios.post('/api/users', {
+            firstName: firstNameInput.value, 
+            lastName: lastNameInput.value, 
+            email: emailInput.value, 
+            password: passwordInput.value
+        }).then(res => {
+            displayWelcomeUser(res.data.name)
+            saveWidgetProfileData();         
+        })  
+    }
 }
 
 signupForm.addEventListener('submit', handleNewUser)
